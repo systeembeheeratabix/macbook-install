@@ -1,13 +1,13 @@
 #!/bin/bash
 
-if [ "$EUID" eq 0 ]
+if [ "$EUID" -eq 0 ]
   then echo "Please do not run as root"
   exit
 fi
 
 echo "Welcome to the Battle Station Setup script."
 export OS_VERSION=$(sw_vers | grep ProductVersion | awk '{print $2}' | cut -d. -f1,2)
-if  [ "$OS_VERSION" -eq "10.14" ]; then
+if  [ "$OS_VERSION" == "10.14" ]; then
   echo "Please install MacOS Mojave first. Terminating."
   exit;
 fi
