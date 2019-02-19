@@ -6,13 +6,20 @@ if [ "$EUID" -eq 0 ]
 fi
 
 echo "Welcome to the Battle Station Setup script."
-export OS_VERSION=$(sw_vers | grep ProductVersion | awk '{print $2}' | cut -d. -f1,2)
-if  [ "$OS_VERSION" == "10.14" ]; then
-  echo "Please install MacOS Mojave first. Terminating."
+export OS_VERSION=$(sw_vers -productVersion | cut -d. -f1,2)
+echo "MacOS version $OS_VERSION detected."
+
+if  [ ${OS_VERSION} != 10.14 ]; then
+  echo "This script requires MacOS Mojave ($OS_VERSION). Please install it first by updating the OS. Terminating."
   exit;
 fi
 
-echo "Please enter the email address for the user of this laptop."
+if [ -x "$(command -v brew)" ]; then
+  echo 'Error: brew has already been installed. The laptop is not a clean install.' >&2
+  exit 1
+fi
+
+echo "Please enter the email address for the new user of this laptop."
 read USER_EMAIL
 export USER_GROUP=$(groups | awk '{print $1}')
 
