@@ -28,6 +28,8 @@ xcode-select --install
 # Sudo will be required once during the Homebrew setup.
 yes '' | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile
+
 brew update
 
 brew --version
