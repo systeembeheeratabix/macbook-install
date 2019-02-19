@@ -11,7 +11,7 @@ echo "MacOS version $OS_VERSION detected."
 
 if  [ ${OS_VERSION} != 10.14 ]; then
   echo "This script requires MacOS Mojave ($OS_VERSION). Please install it first by updating the OS. Terminating."
-  exit;
+  exit 1
 fi
 
 if [ -x "$(command -v brew)" ]; then
