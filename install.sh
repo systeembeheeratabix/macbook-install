@@ -131,7 +131,45 @@ brew cask install font-fira-mono-for-powerline
 brew cask install font-fira-sans
 
 # Install Visual Studio Code Packages.
-#
+ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
+
+code --install-extension alefragnani.project-manager
+code --install-extension bmewburn.vscode-intelephense-client
+code --install-extension calebporzio.better-phpunit
+code --install-extension codingyu.laravel-goto-view
+code --install-extension CoenraadS.disableligatures
+code --install-extension cymonk.sql-formatter
+code --install-extension dkundel.vscode-new-file
+code --install-extension DotJoshJohnson.xml
+code --install-extension EditorConfig.EditorConfig
+code --install-extension esbenp.prettier-vscode
+code --install-extension felixfbecker.php-debug
+code --install-extension fetzi.php-file-types
+code --install-extension imperez.smarty
+code --install-extension junstyle.php-cs-fixer
+code --install-extension linyang95.phpmd
+code --install-extension MehediDracula.php-constructor
+code --install-extension MehediDracula.php-namespace-resolver
+code --install-extension mikestead.dotenv
+code --install-extension moppitz.vscode-extension-auto-import
+code --install-extension mrmlnc.vscode-apache
+code --install-extension mrmlnc.vscode-duplicate
+code --install-extension ms-vscode.atom-keybindings
+code --install-extension ms-vsliveshare.vsliveshare
+code --install-extension ms-vsliveshare.vsliveshare-audio
+code --install-extension ms-vsliveshare.vsliveshare-pack
+code --install-extension neilbrayfield.php-docblocker
+code --install-extension octref.vetur
+code --install-extension onecentlin.laravel-blade
+code --install-extension phiter.phpstorm-snippets
+code --install-extension sachittandukar.laravel-5-snippets
+code --install-extension steoates.autoimport
+code --install-extension Tyriar.lorem-ipsum
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension waderyan.gitblame
+code --install-extension wesbos.theme-cobalt2
+code --install-extension yzhang.markdown-all-in-one
+code --install-extension ziyasal.vscode-open-in-github
 
 # Setup DNSmasq
 brew install dnsmasq
