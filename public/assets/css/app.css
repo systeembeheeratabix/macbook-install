@@ -95,3 +95,6 @@ h1::after {
   margin: 1rem 0;
 }
 
+body #toast-container > div {
+  opacity: .9;
+}

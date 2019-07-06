@@ -30,11 +30,13 @@ var updateFetch = function() {
 };
 
 var updateAvailableNotification = function() {
-    toastr.info("There is a new version of the help dashboard available.", "Update Available");
+    toastr.info("There is a new version of the help dashboard available.", "Update Available", {
+        timeOut: 5000,
+    });
 }
 
 var updateSuccessNotification = function() {
-    toastr.info("The help dashboard has been successfully updated.", "Update Completed", {
+    toastr.success("The help dashboard has been successfully updated. Refreshing automatically.", "Update Completed", {
         onHidden: function() {
             window.location.reload();
         }
@@ -48,7 +50,7 @@ var updateFailedNotification = function() {
 toastr.options = {
     closeButton: false,
     debug: false,
-    newestOnTop: false,
+    newestOnTop: true,
     progressBar: true,
     positionClass: "toast-bottom-right",
     preventDuplicates: false,
