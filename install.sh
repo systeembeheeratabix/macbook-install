@@ -78,7 +78,7 @@ brew install php@7.1
 brew install php@7.2
 brew install php@7.3
 
-brew link php@5.6 --force
+brew link php@7.2 --force
 source ~/.bash_profile
 
 mkdir -p $APACHE_PATH/certificates
