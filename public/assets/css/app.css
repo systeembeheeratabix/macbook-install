@@ -1,0 +1,97 @@
+/* latin-ext */
+
+@font-face {
+    font-family: 'Karla';
+
+    font-style: normal;
+
+    font-weight: 400;
+
+    font-display: swap;
+
+    src: local('Karla'), local('Karla-Regular'), url(https://fonts.gstatic.com/s/karla/v7/qkBbXvYC6trAT7RbLtyG5Q.woff2) format('woff2');
+
+    unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  /* latin */
+
+  @font-face {
+    font-family: 'Karla';
+
+    font-style: normal;
+
+    font-weight: 400;
+
+    font-display: swap;
+
+    src: local('Karla'), local('Karla-Regular'), url(https://fonts.gstatic.com/s/karla/v7/qkBbXvYC6trAT7RVLtw.woff2) format('woff2');
+
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  body {
+    font-family: 'Karla', sans-serif;
+    color: #535358;
+  }
+
+.navbar {
+    background-color: #FFF;
+}
+
+.inline, .inline pre {
+  display: inline-block;
+}
+
+a, .navbar-expand-lg .navbar-nav .nav-link {
+    color: #425366;
+}
+
+p {
+    margin: 0 0 1.66667em;
+}
+
+h1 {
+  margin-top: 3rem;
+  position:relative;
+  display: block;
+  width: auto;
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+h4 {
+  font-size: 1.1rem;
+}
+
+h1::after {
+  background-color: #B4BAC2;
+  display: block;
+  content: "";
+  height: 1px;
+  margin-top: 10px;
+  width: 60px;
+}
+
+.project {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.project-app-icon {
+  width: 16px;
+  height: 16px;
+  margin: 0 10px;
+}
+
+.project h4 {
+  margin: 1rem 0;
+}
+

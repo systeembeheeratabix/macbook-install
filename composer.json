@@ -1,0 +1,19 @@
+{
+    "name": "brysemeijer/help",
+    "description": "A basic help dashboard for local PHP development.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Bryse Meijer",
+            "email": "bryse.meijer@atabix.nl"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "http/app"
+        }
+    }
+}

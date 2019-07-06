@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Force SSL On Instance Behind Load Balancer
+# ------------------------------------------------
+RewriteCond %{HTTP:X-Forwarded-Proto} !^$
+RewriteCond %{HTTP:X-Forwarded-Proto} !https
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [NC,L]
+RewriteRule ^.*$ /index.php [NC,L]
+
+php_value post_max_size 8M
+php_value upload_max_filesize 8M
+php_value memory_limit 512M
