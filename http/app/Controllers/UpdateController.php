@@ -23,6 +23,10 @@ class UpdateController
 
         return [
             'is_updateable' => $remoteVersion > $localVersion,
+            'version' => [
+                'remote' => $remoteVersion,
+                'local' => $localVersion,
+            ]
         ];
     }
 
