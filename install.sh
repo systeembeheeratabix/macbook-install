@@ -111,7 +111,7 @@ composer global require phpunit/phpunit
 # Install MySQL (Account: root:secret)
 brew install mysql@5.7
 brew services start mysql@5.7
-brew link mysql@5.7
+brew link mysql@5.7 --force
 mysqladmin -u root password 'secret'
 
 # Install Software
