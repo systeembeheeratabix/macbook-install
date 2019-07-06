@@ -34,7 +34,11 @@ var updateAvailableNotification = function() {
 }
 
 var updateSuccessNotification = function() {
-    toastr.info("The help dashboard has been successfully updated.", "Update Completed");
+    toastr.info("The help dashboard has been successfully updated.", "Update Completed", {
+        onHidden: function() {
+            window.location.reload();
+        }
+    });
 }
 
 var updateFailedNotification = function() {
