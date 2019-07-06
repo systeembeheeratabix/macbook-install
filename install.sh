@@ -178,6 +178,10 @@ sudo brew services restart dnsmasq
 sudo mkdir -v /etc/resolver
 sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
 
+git clone https://github.com/brysem/macbook-install.git ~/Development/http/app/help
+$(cd ~/Development/http/app/help; composer install)
+open http://help.app.test
+
 # Set up SSH Key
 ssh-keygen -t rsa -N "" -b 4096 -C $USER_EMAIL -f ~/.ssh/id_rsa
 
