@@ -18,7 +18,7 @@ class View
         $path = \str_replace('.', '/', $path);
         $path = $path . '.php';
 
-        return base_path('views/'. \ltrim($path, '/'));
+        return app_path('views/'. \ltrim($path, '/'));
     }
 
     protected function load(string $filename): string

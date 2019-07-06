@@ -1,5 +1,6 @@
 {
     "name": "brysemeijer/help",
+    "version": "0.2.0",
     "description": "A basic help dashboard for local PHP development.",
     "type": "project",
     "license": "MIT",

@@ -7,14 +7,23 @@ function view(string $path, array $variables = [])
     return new View($path, $variables);
 }
 
-function base_path(string $path)
+function app_path(string $path = '')
 {
     global $baseDir;
 
     return \rtrim($baseDir, '/') .'/'. \ltrim($path, '/');
 }
 
-function public_path(string $path)
+function base_path(string $path = '')
+{
+    global $baseDir;
+
+    $basePath = realpath($baseDir . '/..');
+
+    return \rtrim($basePath, '/') .'/'. \ltrim($path, '/');
+}
+
+function public_path(string $path = '')
 {
     global $publicDir;
 
@@ -40,10 +49,14 @@ function php_versions()
     return $versions;
 }
 
-function dd($data)
+function dd(...$data)
 {
-    echo '<pre>';
-    print_r($data);
+    foreach($data as $row) {
+        echo '<pre>';
+        print_r($row);
+        echo '</pre>';
+    }
+
     exit;
 }
 

@@ -34,11 +34,11 @@ class Request implements RequestContract
 
     public function getBody()
     {
-        if ($this->requestMethod === 'GET') {
+        if ($this->method('GET')) {
             return;
         }
 
-        if ($this->requestMethod == 'POST') {
+        if ($this->method('POST')) {
             $body = [];
             foreach ($_POST as $key => $value) {
                 $body[$key] = \filter_input(INPUT_POST, $key, FILTER_SANITIZE_SPECIAL_CHARS);
@@ -69,5 +69,23 @@ class Request implements RequestContract
         $value = isset($variables[$key]) ? $variables[$key] : null;
 
         return ! empty($value) ? $value : $default;
+    }
+
+    /**
+     * Returns the current method or validates the provided method passed as a parameter.
+     *
+     * @param string $matchMethod
+     *
+     * @return bool|string
+     */
+    public function method($matchMethod = null)
+    {
+        $method = strtoupper($this->requestMethod);
+
+        if (is_null($matchMethod)) {
+            return $method;
+        }
+
+        return strtoupper($matchMethod) == $method;
     }
 }

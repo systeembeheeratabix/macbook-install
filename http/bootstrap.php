@@ -10,6 +10,6 @@ require __DIR__ .'/helpers.php';
 
 (function() {
     $router = new Router(new Request());
-    require base_path('/routes.php');
+    require app_path('/routes.php');
 })();
 

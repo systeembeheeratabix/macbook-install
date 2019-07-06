@@ -2,6 +2,7 @@
 
 use App\Controllers\ProjectController;
 use App\Request;
+use App\Controllers\UpdateController;
 
 $router->get('/', function () {
     return view('home', [
@@ -21,6 +22,14 @@ $router->post('/finder', function (Request $request) {
     return [
         'path' => $path,
     ];
+});
+
+$router->get('/update', function (Request $request) {
+    return new UpdateController();
+});
+
+$router->post('/update', function (Request $request) {
+    return new UpdateController();
 });
 
 $router->get('/php', function () {

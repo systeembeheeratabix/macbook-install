@@ -7,6 +7,7 @@
     <title><?=$title?> - Atabix Dashboard</title>
     <link rel="stylesheet" href="/assets/vendor/boostrap/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/app.css">
+    <link rel="stylesheet" href="/assets/vendor/toastr.js/toastr.min.css">
 
     <script src="/assets/vendor/jquery/jquery.min.js"></script>
 </head>
