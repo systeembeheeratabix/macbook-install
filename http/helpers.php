@@ -2,28 +2,28 @@
 
 use App\View;
 
-function view(string $path, array $variables = [])
+function view($path, array $variables = [])
 {
     return new View($path, $variables);
 }
 
-function app_path(string $path = '')
+function app_path($path = '')
 {
     global $baseDir;
 
     return \rtrim($baseDir, '/') .'/'. \ltrim($path, '/');
 }
 
-function base_path(string $path = '')
+function base_path($path = '')
 {
     global $baseDir;
 
-    $basePath = realpath($baseDir . '/..');
+    $basePath = \realpath($baseDir . '/..');
 
     return \rtrim($basePath, '/') .'/'. \ltrim($path, '/');
 }
 
-function public_path(string $path = '')
+function public_path($path = '')
 {
     global $publicDir;
 
@@ -32,28 +32,29 @@ function public_path(string $path = '')
 
 function php_versions()
 {
-    $path = realpath('/usr/local/Cellar');
+    $path = \realpath('/usr/local/Cellar');
 
     $folders = new RecursiveDirectoryIterator($path);
     $versions = [];
-    foreach($folders as $name => $folder){
-        if (strpos($name, 'php@') === false) {
+    foreach ($folders as $name => $folder) {
+        if (\strpos($name, 'php@') === false) {
             continue;
         }
-        $name = explode('@', $name);
+        $name = \explode('@', $name);
         if (isset($name[1])) {
             $versions[] = $name[1];
         }
     }
-    sort($versions);
+    \sort($versions);
+
     return $versions;
 }
 
 function dd(...$data)
 {
-    foreach($data as $row) {
+    foreach ($data as $row) {
         echo '<pre>';
-        print_r($row);
+        \print_r($row);
         echo '</pre>';
     }
 
@@ -62,6 +63,6 @@ function dd(...$data)
 
 function redirect($url)
 {
-    header('Location: '. $url);
+    \header('Location: '. $url);
     exit;
 }

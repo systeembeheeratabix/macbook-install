@@ -48,23 +48,23 @@ class Request implements RequestContract
         }
     }
 
-    public function setMethod(string $method)
+    public function setMethod($method)
     {
-        if (! in_array($method, ['POST', 'GET'])) {
+        if (! \in_array($method, ['POST', 'GET'])) {
             throw new InvalidArgumentException("The HTTP method \"${method}\" is not supported.");
         }
 
         $this->requestMethod = $method;
     }
 
-    public function setUri(string $uri)
+    public function setUri($uri)
     {
         $this->requestUri = $uri;
     }
 
     public function input($key, $default = null)
     {
-        $variables = array_merge($_GET, $_POST);
+        $variables = \array_merge($_GET, $_POST);
 
         $value = isset($variables[$key]) ? $variables[$key] : null;
 
@@ -80,12 +80,12 @@ class Request implements RequestContract
      */
     public function method($matchMethod = null)
     {
-        $method = strtoupper($this->requestMethod);
+        $method = \strtoupper($this->requestMethod);
 
-        if (is_null($matchMethod)) {
+        if (\is_null($matchMethod)) {
             return $method;
         }
 
-        return strtoupper($matchMethod) == $method;
+        return \strtoupper($matchMethod) == $method;
     }
 }

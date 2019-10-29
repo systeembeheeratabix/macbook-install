@@ -7,13 +7,13 @@ class View
     protected $path;
     protected $variables;
 
-    public function __construct(string $path, array $variables = [])
+    public function __construct($path, array $variables = [])
     {
         $this->path = $this->parsePath($path);
         $this->variables = $variables;
     }
 
-    protected function parsePath(string $path)
+    protected function parsePath($path)
     {
         $path = \str_replace('.', '/', $path);
         $path = $path . '.php';
@@ -21,7 +21,7 @@ class View
         return app_path('views/'. \ltrim($path, '/'));
     }
 
-    protected function load(string $filename): string
+    protected function load($filename)
     {
         if (\is_file($filename)) {
             \ob_start();
@@ -39,7 +39,7 @@ class View
         return $this->__toString();
     }
 
-    public function __toString(): string
+    public function __toString()
     {
         return $this->load($this->path);
     }

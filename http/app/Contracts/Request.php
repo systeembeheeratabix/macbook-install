@@ -6,7 +6,7 @@ interface Request
 {
     public function getBody();
 
-    public function setUri(string $uri);
+    public function setUri($uri);
 
-    public function setMethod(string $method);
+    public function setMethod($method);
 }
