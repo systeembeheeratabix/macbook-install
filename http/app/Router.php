@@ -39,7 +39,7 @@ class Router
             return '/';
         }
 
-        $uriParts = explode('?', $route, 2);
+        $uriParts = \explode('?', $route, 2);
 
         return $uriParts[0];
     }
@@ -67,7 +67,7 @@ class Router
     {
         $methodDictionary = $this->{\strtolower($this->request->requestMethod)};
         $formatedRoute = $this->formatRoute($this->request->requestUri);
-        $method = $methodDictionary[$formatedRoute] ?? null;
+        $method = $methodDictionary[$formatedRoute] ? $methodDictionary[$formatedRoute] : null;
         if (\is_null($method)) {
             $this->defaultRequestHandler();
 
@@ -78,6 +78,7 @@ class Router
 
         if (\is_string($routeReturn)) {
             echo $routeReturn;
+
             return;
         }
 
@@ -85,9 +86,10 @@ class Router
             $routeReturn = $routeReturn($this->request);
         }
 
-        if (is_array($routeReturn)) {
-            header('Content-Type: application/json');
-            echo json_encode($routeReturn);
+        if (\is_array($routeReturn)) {
+            \header('Content-Type: application/json');
+            echo \json_encode($routeReturn);
+
             return;
         }
 
