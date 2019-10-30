@@ -23,7 +23,10 @@ echo "Please enter the email address for the new user of this laptop."
 read USER_EMAIL
 export USER_GROUP=$(groups | awk '{print $1}')
 
+# Install Xcode
 xcode-select --install
+# Also check this issue https://github.com/nodejs/node-gyp/issues/569#issuecomment-94917337
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 # Sudo will be required once during the Homebrew setup.
 yes '' | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -114,6 +117,12 @@ brew services start mysql@5.7
 brew link mysql@5.7 --force
 mysqladmin -u root password 'secret'
 
+# Add-ons
+brew install redis
+brew install zsh
+brew install awscli
+brew install aws-elasticbeanstalk
+
 # Install Software
 brew tap caskroom/fonts
 brew cask install iterm2
@@ -124,6 +133,8 @@ brew cask install slack
 brew cask install sequel-pro
 brew cask install spotify
 brew cask install postman
+brew cask install microsoft-office
+brew cask install libreoffice
 
 brew cask install font-fira-code
 brew cask install font-fira-mono
@@ -169,7 +180,11 @@ code --install-extension vscode-icons-team.vscode-icons
 code --install-extension waderyan.gitblame
 code --install-extension wesbos.theme-cobalt2
 code --install-extension yzhang.markdown-all-in-one
+code --install-extension sleistner.vscode-fileutils
 code --install-extension ziyasal.vscode-open-in-github
+code --install-extension DavidAnson.vscode-markdownlint
+code --install-extension cjhowe7.laravel-blade
+code --install-extension felixfbecker.php-pack
 
 # Setup DNSmasq
 brew install dnsmasq

@@ -8,10 +8,10 @@
     <p>This section will explain some of the basic development tools that are pre-installed on your laptop.</p>
 
     <h2 id="php">PHP</h2>
-    <p>Your laptop has the following versions of PHP installed: <?=implode(', ', $phpVersions)?>.</p>
+    <p>Your laptop has the following versions of PHP installed: <?=\implode(', ', $phpVersions)?>.</p>
     <p>
         To switch from PHP versions you can use the <code class="inline">sphp {version}</code> command.
-        For example, you can use the following command in your terminal <code>sphp <?=$phpVersions[count($phpVersions) - 1]?></code>.
+        For example, you can use the following command in your terminal <code>sphp <?=$phpVersions[\count($phpVersions) - 1]?></code>.
         When switching PHP versions, your password will be asked in order to restart the Apache server.
         This is the same password that you use to login to your account on this device.
     </p>
@@ -31,28 +31,28 @@
         <tbody>
             <tr>
                 <th scope="row">{project}.app.test</th>
-                <td>/Users/<?=get_current_user()?>/Development/http/app/{project}/public</td>
+                <td>/Users/<?=\get_current_user()?>/Development/http/app/{project}/public</td>
                 <td>Atabase 3</td>
             </tr>
             <tr>
                 <th scope="row">{subdomain}.{project}.app.test</th>
-                <td>/Users/<?=get_current_user()?>/Development/http/app/{project}/public</td>
+                <td>/Users/<?=\get_current_user()?>/Development/http/app/{project}/public</td>
                 <td>Atabase 3</td>
             </tr>
             <tr>
                 <th scope="row">{project}.dev.test</th>
-                <td>/Users/<?=get_current_user()?>/Development/http/dev/{project}/www</td>
+                <td>/Users/<?=\get_current_user()?>/Development/http/dev/{project}/www</td>
                 <td>Atabase 2</td>
             </tr>
             <tr>
                 <th scope="row">{subdomain}.{project}.dev.test</th>
-                <td>/Users/<?=get_current_user()?>/Development/http/dev/{project}/{subdomain}</td>
+                <td>/Users/<?=\get_current_user()?>/Development/http/dev/{project}/{subdomain}</td>
                 <td>Atabase 2</td>
             </tr>
         </tbody>
     </table>
     <p>
-        Try creating a website at <code>example.app.test</code> with <code><?=htmlentities("<h1>Hello World</h1>")?></code>.
+        Try creating a website at <code>example.app.test</code> with <code><?=\htmlentities('<h1>Hello World</h1>')?></code>.
         If you succeeded with setting it up you should be able to go to <a href="http://example.app.test/" target="_blank">http://example.app.test/</a> and see "Hello World" instead of "Not Found" in your browser.
         For a more advanced example you can try looking for the folder with the source code of this page that you are currently reading.
     </p>
@@ -96,7 +96,7 @@
         This is our legacy framework.
         It is maintained for older projects and requires a setup that some may consider complicated.
         Atabase 2 projects are always setup under the <code>.dev.test</code> TLD because it's DocumentRoot is the same as project root.
-        To read more about how to setup an Atabase 2 project, please read further about it at <a href="https://cloud.atabix.com/wiki/details?id=208">https://cloud.atabix.com/wiki/details?id=208</a>.
+        To read more about how to setup an Atabase 2 project, please read further about it at <a href="https://tutorials.atabix.com/basics/setup_atabase2_locally/">https://tutorials.atabix.com/basics/setup_atabase2_locally/</a>.
     </p>
 
     <h2 id="atabase3">Atabase 3</h2>
