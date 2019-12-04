@@ -124,7 +124,7 @@ brew install awscli
 brew install aws-elasticbeanstalk
 
 # Install Software
-brew tap caskroom/fonts
+brew tap homebrew/cask-fonts
 brew cask install iterm2
 brew cask install visual-studio-code
 brew cask install tower
