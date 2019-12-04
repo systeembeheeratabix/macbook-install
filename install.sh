@@ -188,7 +188,7 @@ code --install-extension felixfbecker.php-pack
 
 # Setup DNSmasq
 brew install dnsmasq
-echo -e "address=/.test/127.0.0.1" > /usr/local/etc/dnsmasq.conf
+echo "address=/.test/127.0.0.1" > /usr/local/etc/dnsmasq.conf
 sudo brew services restart dnsmasq
 sudo mkdir -v /etc/resolver
 sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
