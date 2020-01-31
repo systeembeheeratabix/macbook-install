@@ -26,7 +26,7 @@ export USER_GROUP=$(groups | awk '{print $1}')
 # Install Xcode
 xcode-select --install
 # Also check this issue https://github.com/nodejs/node-gyp/issues/569#issuecomment-94917337
-sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+# sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 # Sudo will be required once during the Homebrew setup.
 yes '' | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -34,7 +34,6 @@ echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
 source ~/.bash_profile
 
 brew update
-
 brew --version
 
 # Own all of the files created by homebrew.
@@ -80,8 +79,9 @@ brew install php@7.0
 brew install php@7.1
 brew install php@7.2
 brew install php@7.3
+brew install php@7.4
 
-brew link php@7.2 --force
+brew link php@7.3 --force --overwrite
 source ~/.bash_profile
 
 mkdir -p $APACHE_PATH/certificates
@@ -144,6 +144,7 @@ brew cask install font-fira-sans
 # Install Visual Studio Code Packages.
 ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
 
+# Check these step for step. Where some broken.
 code --install-extension alefragnani.project-manager
 code --install-extension bmewburn.vscode-intelephense-client
 code --install-extension calebporzio.better-phpunit
@@ -193,12 +194,13 @@ sudo brew services restart dnsmasq
 sudo mkdir -v /etc/resolver
 sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
 
+# Get Bryse's help project
 git clone https://github.com/brysem/macbook-install.git ~/Development/http/app/help
 $(cd ~/Development/http/app/help; composer install)
 open http://help.app.test
 
 # Set up SSH Key
-ssh-keygen -t rsa -N "" -b 4096 -C $USER_EMAIL -f ~/.ssh/id_rsa
+ssh-keygen -m PEM -t rsa -b 4096 -C $USER_EMAIL -f ~/.ssh/id_rsa
 
 # Install Node Version Manager
 npm install -g n
