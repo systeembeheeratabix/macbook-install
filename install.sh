@@ -166,10 +166,6 @@ code --install-extension mikestead.dotenv
 code --install-extension moppitz.vscode-extension-auto-import
 code --install-extension mrmlnc.vscode-apache
 code --install-extension mrmlnc.vscode-duplicate
-code --install-extension ms-vscode.atom-keybindings
-code --install-extension ms-vsliveshare.vsliveshare
-code --install-extension ms-vsliveshare.vsliveshare-audio
-code --install-extension ms-vsliveshare.vsliveshare-pack
 code --install-extension neilbrayfield.php-docblocker
 code --install-extension octref.vetur
 code --install-extension onecentlin.laravel-blade
