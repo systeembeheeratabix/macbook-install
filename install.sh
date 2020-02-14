@@ -9,8 +9,8 @@ echo "Welcome to the Battle Station Setup script."
 export OS_VERSION=$(sw_vers -productVersion | cut -d. -f1,2)
 echo "MacOS version $OS_VERSION detected."
 
-if  [ ${OS_VERSION} != 10.14 ]; then
-  echo "This script requires MacOS Mojave ($OS_VERSION). Please install it first by updating the OS. Terminating."
+if  [ ${OS_VERSION} != 10.15 ]; then
+  echo "This script requires MacOS Catalina ($OS_VERSION). Please install it first by updating the OS. Terminating."
   exit 1
 fi
 
