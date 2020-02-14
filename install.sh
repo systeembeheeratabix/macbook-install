@@ -85,12 +85,12 @@ brew link php@7.3 --force --overwrite
 source ~/.bash_profile
 
 mkdir -p $APACHE_PATH/certificates
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.app.test.crt > $APACHE_PATH/certificates/*.app.test.crt
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.app.test.csr > $APACHE_PATH/certificates/*.app.test.csr
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.app.test.key > $APACHE_PATH/certificates/*.app.test.key
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.dev.test.crt > $APACHE_PATH/certificates/*.dev.test.crt
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.dev.test.csr > $APACHE_PATH/certificates/*.dev.test.csr
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.dev.test.key > $APACHE_PATH/certificates/*.dev.test.key
+curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.app.test.crt' > $APACHE_PATH/certificates/*.app.test.crt
+curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.app.test.csr' > $APACHE_PATH/certificates/*.app.test.csr
+curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.app.test.key' > $APACHE_PATH/certificates/*.app.test.key
+curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.dev.test.crt' > $APACHE_PATH/certificates/*.dev.test.crt
+curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.dev.test.csr' > $APACHE_PATH/certificates/*.dev.test.csr
+curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.dev.test.key' > $APACHE_PATH/certificates/*.dev.test.key
 
 curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/server.crt > $APACHE_PATH/server.crt
 curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/server.key > $APACHE_PATH/server.key
