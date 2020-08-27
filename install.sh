@@ -207,3 +207,19 @@ sudo chown $(whoami):$USER_GROUP $(brew --prefix)/n
 # Install required versions
 n 0.10.48
 n latest
+
+# Install Nativescript
+sudo gem install xcodeproj
+sudo gem install cocoapods
+
+pod setup
+sudo easy_install pip
+pip install six
+
+brew tap AdoptOpenJDK/openjdk
+brew cask install adoptopenjdk8
+
+# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+# export ANDROID_HOME=/usr/local/share/android-sdk
+
+brew cask install android-sdk
