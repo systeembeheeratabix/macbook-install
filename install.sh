@@ -217,7 +217,7 @@ sudo easy_install pip
 pip install six
 
 brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk8
+brew cask install adoptopenjdk/openjdk/adoptopenjdk8
 
 echo 'export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)' >> ~/.bash_profile
 echo 'export ANDROID_HOME=/usr/local/share/android-sdk' >> ~/.bash_profile
