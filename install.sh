@@ -219,7 +219,8 @@ pip install six
 brew tap AdoptOpenJDK/openjdk
 brew cask install adoptopenjdk8
 
-# export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
-# export ANDROID_HOME=/usr/local/share/android-sdk
+echo 'export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)' >> ~/.bash_profile
+echo 'export ANDROID_HOME=/usr/local/share/android-sdk' >> ~/.bash_profile
+source ~/.bash_profile
 
 brew cask install android-sdk
