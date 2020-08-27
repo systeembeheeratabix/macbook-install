@@ -225,3 +225,6 @@ source ~/.bash_profile
 
 brew cask install android-sdk
 $ANDROID_HOME/tools/bin/sdkmanager "tools" "emulator" "platform-tools" "platforms;android-28" "build-tools;28.0.3" "extras;android;m2repository" "extras;google;m2repository"
+
+npm i -g nativescript
+tns doctor
