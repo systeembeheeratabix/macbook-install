@@ -53,6 +53,7 @@ sudo brew services start httpd
 mkdir -p ~/Development/http/app
 mkdir -p ~/Development/http/dev
 mkdir -p ~/Development/http/logs
+touch ~/Development/.metadata_never_index
 
 # Download the Apache configuration
 export APACHE_PATH=/usr/local/etc/httpd
