@@ -99,6 +99,9 @@ curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/serve
 # Own all of the files created by homebrew.
 sudo chown -R $(whoami):$USER_GROUP $(brew --prefix)/*
 
+# Prevent indexing our logs, databases, etc.
+touch /usr/local/var/.metadata_never_index
+
 sudo brew services restart httpd
 
 curl -L https://gist.githubusercontent.com/rhukster/f4c04f1bf59e0b74e335ee5d186a98e2/raw > /usr/local/bin/sphp
