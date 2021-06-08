@@ -104,6 +104,11 @@ chmod +x /usr/local/bin/sphp
 # Install PHP Addons
 brew install composer
 
+# PHP CS Fixer
+mkdir -p /usr/local/lib/php-cs-fixer
+composer require --working-dir=/usr/local/lib/php-cs-fixer friendsofphp/php-cs-fixer
+ln -s /usr/local/lib/php-cs-fixer/vendor/bin/php-cs-fixer /usr/local/bin/php-cs-fixer
+
 # Install Global PHP Packages
 composer global require phpunit/phpunit
 
