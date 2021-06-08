@@ -72,15 +72,9 @@ sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/vhosts/app.conf
 curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/vhosts/dev.conf > $APACHE_PATH/vhosts/dev.conf
 sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/vhosts/dev.conf
 
-# Install tap for deprecated PHP versions.
-brew tap exolnet/homebrew-deprecated
-
-brew install php@5.6
-brew install php@7.0
-brew install php@7.1
-brew install php@7.2
 brew install php@7.3
 brew install php@7.4
+brew install php@8.0
 
 brew link php@7.3 --force --overwrite
 source ~/.bash_profile
@@ -108,8 +102,6 @@ curl -L https://gist.githubusercontent.com/rhukster/f4c04f1bf59e0b74e335ee5d186a
 chmod +x /usr/local/bin/sphp
 
 # Install PHP Addons
-brew install php-cs-fixer
-brew install phpmd
 brew install composer
 
 # Install Global PHP Packages
@@ -129,17 +121,17 @@ brew install aws-elasticbeanstalk
 
 # Install Software
 brew tap homebrew/cask-fonts
-brew cask install iterm2
-brew cask install visual-studio-code
-brew cask install tower
-brew cask install google-chrome
-brew cask install slack
-brew cask install sequel-pro
-brew cask install spotify
-brew cask install postman
-brew cask install authy
-# brew cask install microsoft-office
-brew cask install libreoffice
+brew install iterm2
+brew install visual-studio-code
+brew install tower
+brew install google-chrome
+brew install slack
+brew install sequel-pro
+brew install spotify
+brew install postman
+brew install authy
+# brew install microsoft-office
+brew install libreoffice
 
 brew cask install font-fira-code
 brew cask install font-fira-mono
