@@ -133,10 +133,10 @@ brew install authy
 # brew install microsoft-office
 brew install libreoffice
 
-brew cask install font-fira-code
-brew cask install font-fira-mono
-brew cask install font-fira-mono-for-powerline
-brew cask install font-fira-sans
+brew install font-fira-code
+brew install font-fira-mono
+brew install font-fira-mono-for-powerline
+brew install font-fira-sans
 
 # Install Visual Studio Code Packages.
 ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
