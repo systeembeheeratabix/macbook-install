@@ -44,7 +44,9 @@ sudo apachectl stop
 sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
 
 # Install some basic software that is required.
-brew install httpd openldap libiconv wget node gnu-sed svn
+brew install httpd openldap libiconv wget node gnu-sed svn git git-lfs
+
+git lfs install
 
 # Autostart Brew's Apache
 sudo brew services start httpd
