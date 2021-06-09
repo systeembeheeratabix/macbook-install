@@ -209,6 +209,10 @@ sudo chown $(whoami):$USER_GROUP $(brew --prefix)/n
 n 0.10.48
 n latest
 
+# Setup ZSH
+sudo sh -c "echo $(which zsh) >> /etc/shells"
+chsh -s $(which zsh)
+
 # Install Nativescript
 sudo gem install xcodeproj
 sudo gem install cocoapods
@@ -217,15 +221,12 @@ pod setup
 sudo easy_install pip
 pip install six
 
-brew tap AdoptOpenJDK/openjdk
-brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+brew install --cask adoptopenjdk
+brew install --cask android-studio
 
-echo 'export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)' >> ~/.bash_profile
-echo 'export ANDROID_HOME=/usr/local/share/android-sdk' >> ~/.bash_profile
+echo 'export ANDROID_HOME=$HOME/Library/Android/sdk' >> ~/.bash_profile
+echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >> ~/.bash_profile
 source ~/.bash_profile
 
-brew cask install android-sdk
-$ANDROID_HOME/tools/bin/sdkmanager "tools" "emulator" "platform-tools" "platforms;android-28" "build-tools;28.0.3" "extras;android;m2repository" "extras;google;m2repository"
-
-npm i -g nativescript
+npm install -g nativescript
 tns doctor
