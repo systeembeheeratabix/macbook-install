@@ -240,3 +240,7 @@ echo "Open Android Studio and run the initial setup."
 
 npm install -g nativescript
 ns doctor android
+
+# Install Oh My ZSH
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh
