@@ -213,13 +213,20 @@ n latest
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 
-# Install Nativescript
-sudo gem install xcodeproj
+# Install Nativescript iOS
+brew install ruby@2.7
+brew link ruby@2.7
+
+echo 'export PATH=/usr/local/lib/ruby/gems/2.7.0/bin:$PATH' >> ~/.bash_profile
+
 sudo gem install cocoapods
+sudo gem install xcodeproj
 
 pod setup
-sudo easy_install pip
-pip install six
+sudo easy_install pip==20.3.3
+python -m pip install six
+
+# Install Nativescript Android
 
 brew install --cask adoptopenjdk
 brew install --cask android-studio
@@ -228,5 +235,8 @@ echo 'export ANDROID_HOME=$HOME/Library/Android/sdk' >> ~/.bash_profile
 echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >> ~/.bash_profile
 source ~/.bash_profile
 
+
+echo "Open Android Studio and run the initial setup."
+
 npm install -g nativescript
-tns doctor
+ns doctor android
