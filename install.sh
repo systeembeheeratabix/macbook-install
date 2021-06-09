@@ -212,6 +212,7 @@ n latest
 # Setup ZSH
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # Install Nativescript iOS
 brew install ruby@2.7
@@ -240,10 +241,6 @@ echo "Open Android Studio and run the initial setup."
 
 npm install -g nativescript
 ns doctor android
-
-# Install Oh My ZSH
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sh install.sh
 
 # Setup Architect
 mkdir -p /usr/local/lib/atabix/architect
