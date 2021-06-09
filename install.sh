@@ -131,7 +131,7 @@ brew install visual-studio-code
 brew install tower
 brew install google-chrome
 brew install slack
-brew install sequel-pro
+brew install --cask sequel-ace
 brew install spotify
 brew install postman
 brew install authy
