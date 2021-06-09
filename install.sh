@@ -213,6 +213,7 @@ n latest
 sudo sh -c "echo $(which zsh) >> /etc/shells"
 chsh -s $(which zsh)
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+compaudit | xargs chmod g-w,o-w
 
 # Install Nativescript iOS
 brew install ruby@2.7
