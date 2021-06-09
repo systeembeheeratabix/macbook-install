@@ -244,3 +244,9 @@ ns doctor android
 # Install Oh My ZSH
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
+
+# Setup Architect
+mkdir -p /usr/local/lib/atabix/architect
+echo '{"repositories": [{ "type": "composer", "url": "https://KBGjLxKV1ghg3vethQZTB:NtpfhZzvjD3nAJvZjXeEqye@satis.atabix.com" }]}' > /usr/local/lib/atabix/architect/composer.json
+composer require --working-dir=/usr/local/lib/atabix/architect atabix/architect
+ln -s /usr/local/lib/atabix/architect/vendor/bin/architect /usr/local/bin/architect
