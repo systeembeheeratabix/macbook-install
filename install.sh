@@ -235,9 +235,9 @@ brew tap adoptopenjdk/openjdk
 brew install --cask adoptopenjdk8
 brew install --cask android-studio
 
-echo 'export ANDROID_HOME=$HOME/Library/Android/sdk' >> ~/.bash_profile
-echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >> ~/.bash_profile
-source ~/.bash_profile
+echo 'export ANDROID_HOME=$HOME/Library/Android/sdk' >> ~/.zshrc
+echo 'export PATH=$PATH:$ANDROID_HOME/platform-tools' >> ~/.zshrc
+source ~/.zshrc
 
 
 echo "Open Android Studio and run the initial setup."
