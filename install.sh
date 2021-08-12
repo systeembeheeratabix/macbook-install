@@ -110,6 +110,7 @@ brew install composer
 mkdir -p /usr/local/lib/php-cs-fixer
 composer require --working-dir=/usr/local/lib/php-cs-fixer friendsofphp/php-cs-fixer
 ln -s /usr/local/lib/php-cs-fixer/vendor/bin/php-cs-fixer /usr/local/bin/php-cs-fixer
+curl 'https://raw.githubusercontent.com/atabix/code-style/main/php-cs-fixer.dist.php' > "~/Development/.php-cs-fixer.dist.php"
 
 # Install Global PHP Packages
 composer global require phpunit/phpunit
