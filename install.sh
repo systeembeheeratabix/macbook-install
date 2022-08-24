@@ -11,7 +11,7 @@ echo "Welcome to the Battle Station Setup script."
 export OS_VERSION=$(sw_vers -productVersion | cut -d. -f1,2)
 echo "MacOS version $OS_VERSION detected."
 
-if [ $(version $OS_VERSION) -ge $(version "12.5") ]; then
+if [ $(version $OS_VERSION) -lt $(version "12.5") ]; then
   echo "This script requires MacOS Monterey ($OS_VERSION). Please install it first by updating the OS. Terminating."
   exit 1
 fi
