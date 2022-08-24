@@ -109,12 +109,6 @@ brew services start mysql@5.7
 brew link mysql@5.7 --force
 mysqladmin -u root password 'secret'
 
-# Add-ons
-brew install redis
-brew install zsh
-brew install awscli
-brew install aws-elasticbeanstalk
-
 # Install Software
 brew tap homebrew/cask-fonts
 brew install iterm2
