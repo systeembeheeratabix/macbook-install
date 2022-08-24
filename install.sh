@@ -110,7 +110,6 @@ brew link mysql@5.7 --force
 mysqladmin -u root password 'secret'
 
 # Install Software
-brew tap homebrew/cask-fonts
 brew install google-chrome
 brew install visual-studio-code
 brew install iterm2
@@ -122,11 +121,6 @@ brew install spotify
 brew install authy
 # brew install microsoft-office
 brew install libreoffice
-
-brew install font-fira-code
-brew install font-fira-mono
-brew install font-fira-mono-for-powerline
-brew install font-fira-sans
 
 # Install Visual Studio Code Packages.
 ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
