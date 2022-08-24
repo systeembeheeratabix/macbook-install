@@ -92,7 +92,7 @@ touch /usr/local/var/.metadata_never_index
 
 sudo brew services restart httpd
 
-curl -L https://gist.githubusercontent.com/rhukster/f4c04f1bf59e0b74e335ee5d186a98e2/raw > /usr/local/bin/sphp
+curl -L https://raw.githubusercontent.com/brysem/macbook-install/master/sphp > /usr/local/bin/sphp
 chmod +x /usr/local/bin/sphp
 
 # Install PHP Addons
