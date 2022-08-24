@@ -122,9 +122,6 @@ brew install authy
 # brew install microsoft-office
 brew install libreoffice
 
-# Install Visual Studio Code Packages.
-ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/code
-
 # Check these step for step. Where some broken.
 code --install-extension alefragnani.project-manager
 code --install-extension bmewburn.vscode-intelephense-client
