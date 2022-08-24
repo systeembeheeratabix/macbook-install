@@ -39,12 +39,8 @@ brew --version
 # Own all of the files created by homebrew.
 sudo chown -R $(whoami):$USER_GROUP $(brew --prefix)/*
 
-# Kill the built in Mac OS Apache
-sudo apachectl stop
-sudo launchctl unload -w /System/Library/LaunchDaemons/org.apache.httpd.plist 2>/dev/null
-
 # Install some basic software that is required.
-brew install httpd openldap libiconv wget node gnu-sed svn git git-lfs
+brew install httpd openldap libiconv wget node gnu-sed svn git git-lfs php@7.4 php@8.0 php@8.1 mysql@5.7 composer
 
 git lfs install
 
@@ -74,11 +70,7 @@ sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/vhosts/app.conf
 curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/vhosts/dev.conf > $APACHE_PATH/vhosts/dev.conf
 sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/vhosts/dev.conf
 
-brew install php@7.3
-brew install php@7.4
-brew install php@8.0
-
-brew link php@7.3 --force --overwrite
+brew link php@8.0 --force --overwrite
 source ~/.bash_profile
 
 mkdir -p $APACHE_PATH/certificates
