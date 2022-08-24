@@ -95,9 +95,6 @@ sudo brew services restart httpd
 curl -L https://raw.githubusercontent.com/brysem/macbook-install/master/sphp > /usr/local/bin/sphp
 chmod +x /usr/local/bin/sphp
 
-# Install PHP Addons
-brew install composer
-
 # PHP CS Fixer
 mkdir -p /usr/local/lib/php-cs-fixer
 composer require --working-dir=/usr/local/lib/php-cs-fixer friendsofphp/php-cs-fixer
