@@ -169,7 +169,7 @@ sudo mkdir -vp /usr/local/n
 sudo chown $(whoami):$USER_GROUP $(brew --prefix)/n
 
 # Install required versions
-n 0.10.48
+n 14
 n latest
 
 # Setup ZSH
