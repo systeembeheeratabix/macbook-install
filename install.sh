@@ -111,14 +111,14 @@ mysqladmin -u root password 'secret'
 
 # Install Software
 brew tap homebrew/cask-fonts
-brew install iterm2
-brew install visual-studio-code
-brew install tower
 brew install google-chrome
-brew install slack
-brew install --cask sequel-ace
-brew install spotify
+brew install visual-studio-code
+brew install iterm2
+brew install sequel-ace
+brew install tower
 brew install postman
+brew install slack
+brew install spotify
 brew install authy
 # brew install microsoft-office
 brew install libreoffice
