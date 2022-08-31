@@ -113,7 +113,7 @@ chmod +x $(brew --prefix)/bin/sphp
 mkdir -p $BREW_PATH/lib/php-cs-fixer
 composer require --working-dir=$(brew --prefix)/lib/php-cs-fixer friendsofphp/php-cs-fixer
 ln -s $(brew --prefix)/lib/php-cs-fixer/vendor/bin/php-cs-fixer $(brew --prefix)/bin/php-cs-fixer
-curl 'https://raw.githubusercontent.com/atabix/code-style/main/php-cs-fixer.dist.php' > "~/Development/.php-cs-fixer.dist.php"
+curl https://raw.githubusercontent.com/atabix/code-style/main/php-cs-fixer.dist.php > ~/Development/.php-cs-fixer.dist.php
 
 # Install Global PHP Packages
 composer global require phpunit/phpunit
