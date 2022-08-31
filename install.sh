@@ -69,7 +69,8 @@ mkdir -p ~/Development/http/logs
 touch ~/Development/.metadata_never_index
 
 # Download the Apache configuration
-export APACHE_PATH=$(httpd -V | grep SERVER_CONFIG_FILE | cut -d'"' -f2 | sed -e 's/\(httpd\.conf\)*$//g')
+export BREW_PATH=$(brew --prefix)
+export APACHE_PATH=$BREW_PATH/etc/httpd
 echo $APACHE_PATH
 mkdir -p $APACHE_PATH/vhosts
 
