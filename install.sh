@@ -73,6 +73,7 @@ mkdir -p $APACHE_PATH/vhosts
 
 curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/httpd.conf > $APACHE_PATH/httpd.conf
 sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/httpd.conf
+sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/extra/httpd-vhosts.conf
 sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/httpd.conf
 sed -i -e "s|_USEREMAIL_|$USER_EMAIL|g" $APACHE_PATH/httpd.conf
 sed -i -e "s|_USERGROUP_|$USER_GROUP|g" $APACHE_PATH/httpd.conf
