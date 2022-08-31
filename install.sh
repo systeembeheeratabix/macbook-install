@@ -82,9 +82,11 @@ curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/extra
 
 curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/vhosts/app.conf > $APACHE_PATH/vhosts/app.conf
 sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/vhosts/app.conf
+sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/vhosts/app.conf
 
 curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/vhosts/dev.conf > $APACHE_PATH/vhosts/dev.conf
 sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/vhosts/dev.conf
+sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/vhosts/dev.conf
 
 brew link php@8.0 --force --overwrite
 source ~/.bash_profile
