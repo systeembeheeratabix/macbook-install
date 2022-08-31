@@ -32,7 +32,9 @@ function public_path($path = '')
 
 function php_versions()
 {
-    $path = \realpath('/usr/local/Cellar');
+    exec('brew --prefix', $output);
+    $brewPath = reset($output);
+    $path = \realpath("{$brewPath}/Cellar");
 
     $folders = new RecursiveDirectoryIterator($path);
     $versions = [];
