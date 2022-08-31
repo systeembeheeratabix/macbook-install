@@ -166,8 +166,10 @@ ssh-keygen -m PEM -t rsa -b 4096 -C $USER_EMAIL -f ~/.ssh/id_rsa
 
 # Install Node Version Manager
 npm install -g n
-sudo mkdir -vp $(brew --prefix)/n
-sudo chown $(whoami):$USER_GROUP $(brew --prefix)/n
+echo 'N_PREFIX=$(brew --prefix)/n' >> ~/.zprofile
+N_PREFIX=$(brew --prefix)/n
+sudo mkdir -vp $N_PREFIX
+sudo chown $(whoami):$USER_GROUP $N_PREFIX
 
 # Install required versions
 n 14
