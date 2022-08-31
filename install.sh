@@ -46,6 +46,19 @@ sudo chown -R $(whoami):$USER_GROUP $(brew --prefix)/*
 # Install some basic software that is required.
 brew install httpd openldap libiconv wget node gnu-sed svn git git-lfs php@7.4 php@8.0 php@8.1 mysql@5.7 composer redis zsh awscli aws-elasticbeanstalk dnsmasq
 
+# Install Software
+brew install google-chrome
+brew install visual-studio-code
+brew install iterm2
+brew install sequel-ace
+brew install tower
+brew install postman
+brew install slack
+brew install spotify
+brew install authy
+# brew install microsoft-office
+brew install libreoffice
+
 git lfs install
 
 # Autostart Brew's Apache
@@ -112,19 +125,6 @@ composer global require phpunit/phpunit
 brew services start mysql@5.7
 brew link mysql@5.7 --force
 mysqladmin -u root password 'secret'
-
-# Install Software
-brew install google-chrome
-brew install visual-studio-code
-brew install iterm2
-brew install sequel-ace
-brew install tower
-brew install postman
-brew install slack
-brew install spotify
-brew install authy
-# brew install microsoft-office
-brew install libreoffice
 
 # Check these step for step. Where some broken.
 code --install-extension mrmlnc.vscode-apache
