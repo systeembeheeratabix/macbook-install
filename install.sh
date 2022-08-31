@@ -69,7 +69,9 @@ mkdir -p ~/Development/http/logs
 touch ~/Development/.metadata_never_index
 
 # Download the Apache configuration
-export APACHE_PATH=/usr/local/etc/httpd
+export APACHE_PATH=$(httpd -V | grep SERVER_CONFIG_FILE | cut -d'"' -f2 | sed -e 's/\(httpd\.conf\)
+*$//g')
+echo $APACHE_PATH
 mkdir -p $APACHE_PATH/vhosts
 
 curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/httpd.conf > $APACHE_PATH/httpd.conf
