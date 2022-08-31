@@ -45,8 +45,6 @@ sudo chown -R $(whoami):$USER_GROUP $(brew --prefix)/*
 
 # Install some basic software that is required.
 brew install httpd openldap libiconv wget node gnu-sed svn git git-lfs php@7.4 php@8.0 php@8.1 mysql@5.7 composer redis zsh awscli aws-elasticbeanstalk dnsmasq
-
-# Install Software
 brew install google-chrome
 brew install visual-studio-code
 brew install iterm2
