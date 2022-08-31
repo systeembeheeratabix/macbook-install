@@ -34,8 +34,6 @@ xcode-select --install
 yes '' | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
-echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile
-source ~/.bash_profile
 
 brew update
 brew --version
@@ -69,8 +67,7 @@ mkdir -p ~/Development/http/logs
 touch ~/Development/.metadata_never_index
 
 # Download the Apache configuration
-export BREW_PATH=$(brew --prefix)
-export APACHE_PATH=$BREW_PATH/etc/httpd
+export APACHE_PATH=$(brew --prefix)/etc/httpd
 echo $APACHE_PATH
 mkdir -p $APACHE_PATH/vhosts
 
@@ -105,17 +102,17 @@ curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/serve
 sudo chown -R $(whoami):$USER_GROUP $(brew --prefix)/*
 
 # Prevent indexing our logs, databases, etc.
-touch /usr/local/var/.metadata_never_index
+touch $(brew --prefix)/var/.metadata_never_index
 
 sudo brew services restart httpd
 
-curl -L https://raw.githubusercontent.com/brysem/macbook-install/master/sphp > /usr/local/bin/sphp
-chmod +x /usr/local/bin/sphp
+curl -L https://raw.githubusercontent.com/brysem/macbook-install/master/sphp > $(brew --prefix)/bin/sphp
+chmod +x $(brew --prefix)/bin/sphp
 
 # PHP CS Fixer
-mkdir -p /usr/local/lib/php-cs-fixer
-composer require --working-dir=/usr/local/lib/php-cs-fixer friendsofphp/php-cs-fixer
-ln -s /usr/local/lib/php-cs-fixer/vendor/bin/php-cs-fixer /usr/local/bin/php-cs-fixer
+mkdir -p $BREW_PATH/lib/php-cs-fixer
+composer require --working-dir=$(brew --prefix)/lib/php-cs-fixer friendsofphp/php-cs-fixer
+ln -s $(brew --prefix)/lib/php-cs-fixer/vendor/bin/php-cs-fixer $(brew --prefix)/bin/php-cs-fixer
 curl 'https://raw.githubusercontent.com/atabix/code-style/main/php-cs-fixer.dist.php' > "~/Development/.php-cs-fixer.dist.php"
 
 # Install Global PHP Packages
@@ -154,7 +151,7 @@ code --install-extension bradlc.vscode-tailwindcss
 code --install-extension fireyy.vscode-language-todo
 
 # Setup DNSmasq
-echo "address=/.test/127.0.0.1" > /usr/local/etc/dnsmasq.conf
+echo "address=/.test/127.0.0.1" > $(brew --prefix)/etc/dnsmasq.conf
 sudo brew services restart dnsmasq
 sudo mkdir -v /etc/resolver
 sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
@@ -169,7 +166,7 @@ ssh-keygen -m PEM -t rsa -b 4096 -C $USER_EMAIL -f ~/.ssh/id_rsa
 
 # Install Node Version Manager
 npm install -g n
-sudo mkdir -vp /usr/local/n
+sudo mkdir -vp $(brew --prefix)/n
 sudo chown $(whoami):$USER_GROUP $(brew --prefix)/n
 
 # Install required versions
