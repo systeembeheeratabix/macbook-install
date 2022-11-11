@@ -128,6 +128,7 @@ brew link mysql@5.7 --force
 mysqladmin -u root password 'secret'
 
 # Check these step for step. Where some broken.
+# If `code` alias is missing you can add it to the path: https://code.visualstudio.com/docs/setup/mac
 code --install-extension mrmlnc.vscode-apache
 code --install-extension atabixsolutions.hephaestus
 code --install-extension steoates.autoimport
