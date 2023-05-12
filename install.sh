@@ -31,7 +31,7 @@ xcode-select --install
 # sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
 
 # Sudo will be required once during the Homebrew setup.
-yes '' | ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -49,11 +49,10 @@ brew install iterm2
 brew install sequel-ace
 brew install tower
 brew install postman
-brew install slack
 brew install spotify
 brew install authy
-# brew install microsoft-office
-brew install libreoffice
+brew install microsoft-office
+brew install bitwarden
 
 git lfs install
 
