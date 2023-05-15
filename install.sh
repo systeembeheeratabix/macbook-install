@@ -42,7 +42,7 @@ brew --version
 sudo chown -R $(whoami):$USER_GROUP $(brew --prefix)/*
 
 # Install some basic software that is required.
-brew install httpd openldap libiconv wget node gnu-sed svn git git-lfs php@7.4 php@8.0 php@8.1 mysql@5.7 composer redis zsh awscli aws-elasticbeanstalk dnsmasq
+brew install httpd openldap libiconv wget node gnu-sed svn git git-lfs php@7.4 php@8.0 php@8.1 php@8.2 mysql@5.7 composer redis zsh awscli aws-elasticbeanstalk dnsmasq
 brew install google-chrome
 brew install visual-studio-code
 brew install iterm2
@@ -70,20 +70,20 @@ export APACHE_PATH=$(brew --prefix)/etc/httpd
 echo $APACHE_PATH
 mkdir -p $APACHE_PATH/vhosts
 
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/httpd.conf > $APACHE_PATH/httpd.conf
+curl https://raw.githubusercontent.com/atabix/macbook-install/assets/httpd/httpd.conf > $APACHE_PATH/httpd.conf
 sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/httpd.conf
 sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/extra/httpd-vhosts.conf
 sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/httpd.conf
 sed -i -e "s|_USEREMAIL_|$USER_EMAIL|g" $APACHE_PATH/httpd.conf
 sed -i -e "s|_USERGROUP_|$USER_GROUP|g" $APACHE_PATH/httpd.conf
 
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/extra/httpd-vhosts.conf > $APACHE_PATH/extra/httpd-vhosts.conf
+curl https://raw.githubusercontent.com/atabix/macbook-install/assets/httpd/httpd-vhosts.conf > $APACHE_PATH/extra/httpd-vhosts.conf
 
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/vhosts/app.conf > $APACHE_PATH/vhosts/app.conf
+curl https://raw.githubusercontent.com/atabix/macbook-install/assets/httpd/app.conf > $APACHE_PATH/vhosts/app.conf
 sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/vhosts/app.conf
 sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/vhosts/app.conf
 
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/vhosts/dev.conf > $APACHE_PATH/vhosts/dev.conf
+curl https://raw.githubusercontent.com/atabix/macbook-install/assets/httpd/dev.conf > $APACHE_PATH/vhosts/dev.conf
 sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/vhosts/dev.conf
 sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/vhosts/dev.conf
 
@@ -91,15 +91,15 @@ brew link php@8.0 --force --overwrite
 source ~/.bash_profile
 
 mkdir -p $APACHE_PATH/certificates
-curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.app.test.crt' > "$APACHE_PATH/certificates/*.app.test.crt"
-curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.app.test.csr' > "$APACHE_PATH/certificates/*.app.test.csr"
-curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.app.test.key' > "$APACHE_PATH/certificates/*.app.test.key"
-curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.dev.test.crt' > "$APACHE_PATH/certificates/*.dev.test.crt"
-curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.dev.test.csr' > "$APACHE_PATH/certificates/*.dev.test.csr"
-curl 'https://raw.githubusercontent.com/brysem/httpd-config-template/master/certificates/*.dev.test.key' > "$APACHE_PATH/certificates/*.dev.test.key"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.app.test.crt' > "$APACHE_PATH/certificates/*.app.test.crt"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.app.test.csr' > "$APACHE_PATH/certificates/*.app.test.csr"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.app.test.key' > "$APACHE_PATH/certificates/*.app.test.key"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.dev.test.crt' > "$APACHE_PATH/certificates/*.dev.test.crt"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.dev.test.csr' > "$APACHE_PATH/certificates/*.dev.test.csr"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.dev.test.key' > "$APACHE_PATH/certificates/*.dev.test.key"
 
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/server.crt > $APACHE_PATH/server.crt
-curl https://raw.githubusercontent.com/brysem/httpd-config-template/master/server.key > $APACHE_PATH/server.key
+curl https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/server.crt > $APACHE_PATH/server.crt
+curl https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/server.key > $APACHE_PATH/server.key
 
 # Own all of the files created by homebrew.
 sudo chown -R $(whoami):$USER_GROUP $(brew --prefix)/*
@@ -109,14 +109,14 @@ touch $(brew --prefix)/var/.metadata_never_index
 
 sudo brew services restart httpd
 
-curl -L https://raw.githubusercontent.com/brysem/macbook-install/master/sphp > $(brew --prefix)/bin/sphp
+curl -L https://raw.githubusercontent.com/atabix/macbook-install/assets/scripts/sphp > $(brew --prefix)/bin/sphp
 chmod +x $(brew --prefix)/bin/sphp
 
 # PHP CS Fixer
 mkdir -p $(brew --prefix)/lib/php-cs-fixer
 composer require --working-dir=$(brew --prefix)/lib/php-cs-fixer friendsofphp/php-cs-fixer
 ln -s $(brew --prefix)/lib/php-cs-fixer/vendor/bin/php-cs-fixer $(brew --prefix)/bin/php-cs-fixer
-curl https://raw.githubusercontent.com/atabix/code-style/main/php-cs-fixer.dist.php > ~/Development/.php-cs-fixer.dist.php
+curl https://raw.githubusercontent.com/atabix/macbook-install/assets/scripts/php-cs-fixer.dist.php > ~/Development/.php-cs-fixer.dist.php
 
 # Install Global PHP Packages
 composer global require phpunit/phpunit
@@ -160,8 +160,8 @@ sudo brew services restart dnsmasq
 sudo mkdir -v /etc/resolver
 sudo bash -c 'echo "nameserver 127.0.0.1" > /etc/resolver/test'
 
-# Get Bryse's help project
-git clone https://github.com/brysem/macbook-install.git ~/Development/http/app/help
+# Get the default help project
+git clone git@github.com:atabix/macbook-install.git ~/Development/http/app/help
 $(cd ~/Development/http/app/help; composer install)
 open http://help.app.test
 
@@ -172,11 +172,14 @@ ssh-keygen -m PEM -t rsa -b 4096 -C $USER_EMAIL -f ~/.ssh/id_rsa
 npm install -g n
 echo 'N_PREFIX=$(brew --prefix)/n' >> ~/.zprofile
 N_PREFIX=$(brew --prefix)/n
-sudo mkdir -vp $N_PREFIX
-sudo chown $(whoami):$USER_GROUP $N_PREFIX
+sudo mkdir -p /usr/local/n
+sudo chown -R $(whoami) /usr/local/n
+sudo mkdir -p /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
 
 # Install required versions
 n 14
+n 17
 n latest
 
 # Setup ZSH
@@ -186,10 +189,10 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 compaudit | xargs chmod g-w,o-w
 
 # Install Nativescript iOS
-brew install ruby@2.6
-brew link ruby@2.6
+brew install ruby@2.7
+brew link ruby@2.7
 
-echo 'export PATH=/usr/local/lib/ruby/gems/2.6.0/bin:$PATH' >> ~/.bash_profile
+echo 'export PATH=/usr/local/lib/ruby/gems/2.7.0/bin:$PATH' >> ~/.bash_profile
 
 sudo gem install cocoapods
 sudo gem install xcodeproj
