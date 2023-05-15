@@ -70,20 +70,20 @@ export APACHE_PATH=$(brew --prefix)/etc/httpd
 echo $APACHE_PATH
 mkdir -p $APACHE_PATH/vhosts
 
-curl https://raw.githubusercontent.com/atabix/macbook-install/assets/httpd/httpd.conf > $APACHE_PATH/httpd.conf
+curl https://raw.githubusercontent.com/atabix/macbook-install/main/assets/httpd/httpd.conf > $APACHE_PATH/httpd.conf
 sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/httpd.conf
 sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/extra/httpd-vhosts.conf
 sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/httpd.conf
 sed -i -e "s|_USEREMAIL_|$USER_EMAIL|g" $APACHE_PATH/httpd.conf
 sed -i -e "s|_USERGROUP_|$USER_GROUP|g" $APACHE_PATH/httpd.conf
 
-curl https://raw.githubusercontent.com/atabix/macbook-install/assets/httpd/httpd-vhosts.conf > $APACHE_PATH/extra/httpd-vhosts.conf
+curl https://raw.githubusercontent.com/atabix/macbook-install/main/assets/httpd/httpd-vhosts.conf > $APACHE_PATH/extra/httpd-vhosts.conf
 
-curl https://raw.githubusercontent.com/atabix/macbook-install/assets/httpd/app.conf > $APACHE_PATH/vhosts/app.conf
+curl https://raw.githubusercontent.com/atabix/macbook-install/main/assets/httpd/app.conf > $APACHE_PATH/vhosts/app.conf
 sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/vhosts/app.conf
 sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/vhosts/app.conf
 
-curl https://raw.githubusercontent.com/atabix/macbook-install/assets/httpd/dev.conf > $APACHE_PATH/vhosts/dev.conf
+curl https://raw.githubusercontent.com/atabix/macbook-install/main/assets/httpd/dev.conf > $APACHE_PATH/vhosts/dev.conf
 sed -i -e "s|_USERNAME_|$USER|g" $APACHE_PATH/vhosts/dev.conf
 sed -i -e "s|/usr/local|$(brew --prefix)|g" $(brew --prefix)/etc/httpd/vhosts/dev.conf
 
@@ -91,15 +91,15 @@ brew link php@8.0 --force --overwrite
 source ~/.bash_profile
 
 mkdir -p $APACHE_PATH/certificates
-curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.app.test.crt' > "$APACHE_PATH/certificates/*.app.test.crt"
-curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.app.test.csr' > "$APACHE_PATH/certificates/*.app.test.csr"
-curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.app.test.key' > "$APACHE_PATH/certificates/*.app.test.key"
-curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.dev.test.crt' > "$APACHE_PATH/certificates/*.dev.test.crt"
-curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.dev.test.csr' > "$APACHE_PATH/certificates/*.dev.test.csr"
-curl 'https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/*.dev.test.key' > "$APACHE_PATH/certificates/*.dev.test.key"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/main/assets/certs/*.app.test.crt' > "$APACHE_PATH/certificates/*.app.test.crt"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/main/assets/certs/*.app.test.csr' > "$APACHE_PATH/certificates/*.app.test.csr"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/main/assets/certs/*.app.test.key' > "$APACHE_PATH/certificates/*.app.test.key"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/main/assets/certs/*.dev.test.crt' > "$APACHE_PATH/certificates/*.dev.test.crt"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/main/assets/certs/*.dev.test.csr' > "$APACHE_PATH/certificates/*.dev.test.csr"
+curl 'https://raw.githubusercontent.com/atabix/macbook-install/main/assets/certs/*.dev.test.key' > "$APACHE_PATH/certificates/*.dev.test.key"
 
-curl https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/server.crt > $APACHE_PATH/server.crt
-curl https://raw.githubusercontent.com/atabix/macbook-install/assets/certs/server.key > $APACHE_PATH/server.key
+curl https://raw.githubusercontent.com/atabix/macbook-install/main/assets/certs/server.crt > $APACHE_PATH/server.crt
+curl https://raw.githubusercontent.com/atabix/macbook-install/main/assets/certs/server.key > $APACHE_PATH/server.key
 
 # Own all of the files created by homebrew.
 sudo chown -R $(whoami):$USER_GROUP $(brew --prefix)/*
@@ -109,14 +109,14 @@ touch $(brew --prefix)/var/.metadata_never_index
 
 sudo brew services restart httpd
 
-curl -L https://raw.githubusercontent.com/atabix/macbook-install/assets/scripts/sphp > $(brew --prefix)/bin/sphp
+curl -L https://raw.githubusercontent.com/atabix/macbook-install/main/assets/scripts/sphp > $(brew --prefix)/bin/sphp
 chmod +x $(brew --prefix)/bin/sphp
 
 # PHP CS Fixer
 mkdir -p $(brew --prefix)/lib/php-cs-fixer
 composer require --working-dir=$(brew --prefix)/lib/php-cs-fixer friendsofphp/php-cs-fixer
 ln -s $(brew --prefix)/lib/php-cs-fixer/vendor/bin/php-cs-fixer $(brew --prefix)/bin/php-cs-fixer
-curl https://raw.githubusercontent.com/atabix/macbook-install/assets/scripts/php-cs-fixer.dist.php > ~/Development/.php-cs-fixer.dist.php
+curl https://raw.githubusercontent.com/atabix/macbook-install/main/assets/scripts/php-cs-fixer.dist.php > ~/Development/.php-cs-fixer.dist.php
 
 # Install Global PHP Packages
 composer global require phpunit/phpunit
