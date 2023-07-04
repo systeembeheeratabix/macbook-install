@@ -5,17 +5,6 @@ if [ "$EUID" -eq 0 ]
   exit
 fi
 
-function version { echo "$@" | awk -F. '{ printf("%d%03d%03d%03d\n", $1,$2,$3,$4); }'; }
-
-echo "Welcome to the Battle Station Setup script."
-export OS_VERSION=$(sw_vers -productVersion | cut -d. -f1,2)
-echo "MacOS version $OS_VERSION detected."
-
-if [ $(version $OS_VERSION) -lt $(version "12.5") ]; then
-  echo "This script requires MacOS Monterey ($OS_VERSION). Please install it first by updating the OS. Terminating."
-  exit 1
-fi
-
 if [ -x "$(command -v brew)" ]; then
   echo 'Error: brew has already been installed. The laptop is not a clean install.' >&2
   exit 1
@@ -27,11 +16,13 @@ export USER_GROUP=$(groups | awk '{print $1}')
 
 # Install Xcode
 xcode-select --install
-# Also check this issue https://github.com/nodejs/node-gyp/issues/569#issuecomment-94917337
-# sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
+# Wait for it to be installed.
 
 # Sudo will be required once during the Homebrew setup.
-yes '' | /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# Then:
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -42,7 +33,7 @@ brew --version
 sudo chown -R $(whoami):$USER_GROUP $(brew --prefix)/*
 
 # Install some basic software that is required.
-brew install httpd openldap libiconv wget node gnu-sed svn git git-lfs php@7.4 php@8.0 php@8.1 php@8.2 mysql@5.7 composer redis zsh awscli aws-elasticbeanstalk dnsmasq
+brew install httpd openldap libiconv wget node gnu-sed svn git git-lfs php@7.4 php@8.0 php@8.1 php@8.2 mysql composer redis zsh awscli aws-elasticbeanstalk dnsmasq
 brew install google-chrome
 brew install visual-studio-code
 brew install iterm2
@@ -122,8 +113,8 @@ curl https://raw.githubusercontent.com/atabix/macbook-install/main/assets/script
 composer global require phpunit/phpunit
 
 # Install MySQL (Account: root:secret)
-brew services start mysql@5.7
-brew link mysql@5.7 --force
+brew services start mysql
+brew link mysql --force
 mysqladmin -u root password 'secret'
 
 # Check these step for step. Where some broken.
@@ -169,18 +160,15 @@ open http://help.app.test
 ssh-keygen -m PEM -t rsa -b 4096 -C $USER_EMAIL -f ~/.ssh/id_rsa
 
 # Install Node Version Manager
-npm install -g n
-echo 'N_PREFIX=$(brew --prefix)/n' >> ~/.zprofile
-N_PREFIX=$(brew --prefix)/n
-sudo mkdir -p /usr/local/n
-sudo chown -R $(whoami) /usr/local/n
-sudo mkdir -p /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
-sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+# Refresh the current instance so we can use nvm
+source ~/.zshrc
 
 # Install required versions
-n 14
-n 17
-n latest
+nvm install 14
+nvm install 17
+nvm use 17
 
 # Setup ZSH
 sudo sh -c "echo $(which zsh) >> /etc/shells"
