@@ -86,6 +86,9 @@ if [[ $(uname -m) == 'arm64' ]]; then
 fi
 brew install --cask flutter
 brew install --cask android-studio
+brew install java
+
+echo 'export PATH="$(brew --prefix)/opt/openjdk/bin:$PATH"' >> ~/.zshrc
 
 # Other apps
 brew install --cask spotify
