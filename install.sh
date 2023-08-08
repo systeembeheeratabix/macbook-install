@@ -58,7 +58,7 @@ git lfs install
 # Database tools
 
 echo "Installing database tools"
-brew install --cask table-plus
+brew install --cask tableplus
 brew install --cask dbngin
 
 # Editors / Command line tools
