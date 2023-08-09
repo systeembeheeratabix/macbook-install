@@ -96,6 +96,8 @@ brew install --cask authy
 brew install --cask teamviewer
 brew install --cask raycast
 brew install --cask rectangle
+brew install --cask firefox
+brew install --cask adobe-acrobat-reader
 #optional brew install --cask adobe-creative-cloud
 
 # Auto upgrade brew
