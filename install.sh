@@ -102,7 +102,7 @@ brew install --cask adobe-acrobat-reader
 
 # Auto upgrade brew
 mkdir -p /Users/$(whoami)/Library/LaunchAgents
-brew autoupdate start 86400 --upgrade --greedy --cleanup --enable-notification
+brew autoupdate start 86400 --upgrade --cleanup --enable-notification
 
 # Check these step for step. Where some broken. INSTALL THIS PART AFTER VISUAL STUDIO CODE HAS BEEN INSTALLED!
 
