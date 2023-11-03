@@ -37,6 +37,8 @@ brew install --cask tower
 curl https://get.volta.sh | bash
 ~/.volta/bin/volta install node
 brew install --cask phpstorm
+brew install --cask npm
+brew install --cask node
 
 # Create Dev folders & Never index
 mkdir -p ~/Development/http/app
