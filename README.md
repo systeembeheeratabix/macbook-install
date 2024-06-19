@@ -1,3 +1,13 @@
 # Mac Installation Script
-
-Here is the link: [https://raw.githubusercontent.com/atabix/macbook-install/main/install.sh](https://raw.githubusercontent.com/atabix/macbook-install/main/install.sh)
+1. First install xcode in a terminal
+```
+xcode-select --install
+```
+3. Then, if it's an arm64 based laptop (M1, M2, etc), run
+```
+sudo softwareupdate --install-rosetta
+```
+5. Lastly we run the script, options are given with variables:
+```
+export DEVELOPER=true; curl https://raw.githubusercontent.com/atabix/macbook-install/main/install.sh | zsh
+```
