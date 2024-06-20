@@ -115,7 +115,7 @@ if [ "$DEVELOPER" = true ]; then
         mkdir -p /opt/homebrew/lib/php-cs-fixer
         composer require --dev --working-dir=/opt/homebrew/lib/php-cs-fixer friendsofphp/php-cs-fixer
         ln -s /opt/homebrew/lib/php-cs-fixer/vendor/bin/php-cs-fixer /opt/homebrew/bin/php-cs-fixer
-        curl https://raw.githubusercontent.com/atabix/macbook-install/main/assets/scripts/php-cs-fixer.dist.php > $HOME/Development/.php-cs-fixer.dist.php
+        curl https://raw.githubusercontent.com/atabix/macbook-install/main/scripts/php-cs-fixer.dist.php > $HOME/Development/.php-cs-fixer.dist.php
 
         echo "Install step: 1.4"
         vscode_extensions
@@ -153,7 +153,7 @@ if [ "$DEVELOPER" = true ]; then
         mkdir -p $HOME/.php-cs-fixer
         composer require --dev --working-dir=$HOME/.php-cs-fixer friendsofphp/php-cs-fixer
         echo 'export PATH="$PATH:$HOME/.php-cs-fixer/vendor/bin' >> $HOME/.zshrc
-        curl https://raw.githubusercontent.com/atabix/macbook-install/main/assets/scripts/php-cs-fixer.dist.php > $HOME/Development/.php-cs-fixer.dist.php
+        curl https://raw.githubusercontent.com/atabix/macbook-install/main/scripts/php-cs-fixer.dist.php > $HOME/Development/.php-cs-fixer.dist.php
 
         echo "Install step: 1.4"
         vscode_extensions
