@@ -92,6 +92,8 @@ if [ "$DEVELOPER" = true ]; then
     if [[ $(uname -m) == 'arm64' ]]; then
         echo ARM detected
         echo "Install step: 1.0"
+        #run sudo for the first time so that homebrew will detect it later
+        sudo whoami
         zsh_env_install
 
         #brew noninteractive install
@@ -129,8 +131,10 @@ if [ "$DEVELOPER" = true ]; then
     if [[ $(uname -m) == 'x86_64' ]]; then
         echo x86_64 detected
         echo "Install step: 1.0"
+        #run sudo for the first time so that homebrew will detect it later
+        sudo whoami
         zsh_env_install
-        #fix /usr/local permissions after starship install, this is only needed on intel macs because intel homebrew installs to /usr/local
+        #fix /usr/local permissions, this is only needed on intel macs because intel homebrew installs to /usr/local
         sudo chown -R $(whoami) /usr/local/*
 
         #brew noninteractive install
@@ -169,6 +173,8 @@ if [ "$DEVELOPER" = false ]; then
     echo Non-developer laptop
     if [[ $(uname -m) == 'arm64' ]]; then
         echo ARM detected
+        #run sudo for the first time so that homebrew will detect it later
+        sudo whoami
         #brew noninteractive install
         echo "Install step: 1.0"
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -193,6 +199,10 @@ if [ "$DEVELOPER" = false ]; then
     fi
     if [[ $(uname -m) == 'x86_64' ]]; then
         echo x86_64 detected
+        #run sudo for the first time so that homebrew will detect it later
+        sudo whoami
+        #fix /usr/local permissions, this is only needed on intel macs because intel homebrew installs to /usr/local
+        sudo chown -R $(whoami) /usr/local/*
         #brew noninteractive install
         echo "Install step: 1.0"
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
