@@ -35,6 +35,8 @@ zsh_env_install() {
     echo "# inits" >> $HOME/.zshrc
 }
 vscode_extensions() {
+    #populate vscode config with default settings before extensions so we don't overwrite anything
+    curl -o $HOME/Library/Application\ Support/Code/User/settings.json https://raw.githubusercontent.com/atabix/macbook-install/main/configs/vscode-settings.json
     #install vscode extensions
     code --install-extension alefragnani.project-manager
     code --install-extension amiralizadeh9480.laravel-extra-intellisense
