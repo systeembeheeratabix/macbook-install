@@ -67,6 +67,7 @@ dev_extras() {
     mv Brewfile-dev Brewfile
     brew bundle install
     source $HOME/.zshrc
+    rm Brewfile
 
     #install lfs for git
     git lfs install
@@ -193,6 +194,7 @@ if [ "$DEVELOPER" = false ]; then
         mv Brewfile-nondev Brewfile
         brew bundle install
         source $HOME/.zshrc
+        rm Brewfile
 
         echo "Install step: 1.2"
         brew_autoupdate
@@ -218,6 +220,7 @@ if [ "$DEVELOPER" = false ]; then
         mv Brewfile-nondev Brewfile
         brew bundle install
         source $HOME/.zshrc
+        rm Brewfile
 
         echo "Install step: 1.2"
         brew_autoupdate
