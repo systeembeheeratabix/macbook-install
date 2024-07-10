@@ -7,7 +7,7 @@ xcode-select --install
 ```
 sudo softwareupdate --install-rosetta
 ```
-5. Lastly we run the script, options are given with variables:
+5. Lastly we run the install script:
 ```
 curl https://raw.githubusercontent.com/atabix/macbook-install/main/install.sh | zsh
 ```
