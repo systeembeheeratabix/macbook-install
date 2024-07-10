@@ -1,7 +1,18 @@
 #first install xcode in a terminal with "xcode-select --install" we can't do this in the script because the dialog won't make the script wait
 #same here: if it's an arm64 based laptop (M1, M2, etc) run this command "sudo softwareupdate --install-rosetta"
 
-#to run the script easily from the terminal, type: "export DEVELOPER=true; curl https://raw.githubusercontent.com/atabix/macbook-install/main/install.sh | zsh"
+#to run the script easily from the terminal, type: "curl https://raw.githubusercontent.com/atabix/macbook-install/main/install.sh | zsh"
+
+#prompt to ask if this will be a developer laptop or not
+read -p "Will this laptop be for a developer? [Y/n]" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    export DEVELOPER=true
+elif [[ $REPLY =~ ^[Nn]$ ]]
+then
+    export DEVELOPER=false
+fi
 
 #bundle repeatable commands into functions
 zsh_env_install() {
