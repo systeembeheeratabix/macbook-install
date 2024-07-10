@@ -65,8 +65,7 @@ vscode_extensions() {
 dev_extras() {
     #install tools with brew
     cd || exit
-    curl -O https://raw.githubusercontent.com/atabix/macbook-install/main/Brewfile-dev
-    mv Brewfile-dev Brewfile
+    curl -o Brewfile https://raw.githubusercontent.com/atabix/macbook-install/main/Brewfile-dev
     brew bundle install
     source $HOME/.zshrc
     rm Brewfile
@@ -120,7 +119,7 @@ if [ "$DEVELOPER" = true ]; then
         mkdir -p /opt/homebrew/lib/php-cs-fixer
         composer require --dev --working-dir=/opt/homebrew/lib/php-cs-fixer friendsofphp/php-cs-fixer
         ln -s /opt/homebrew/lib/php-cs-fixer/vendor/bin/php-cs-fixer /opt/homebrew/bin/php-cs-fixer
-        curl https://raw.githubusercontent.com/atabix/macbook-install/main/scripts/php-cs-fixer.dist.php > $HOME/Development/.php-cs-fixer.dist.php
+        curl -o $HOME/Development/.php-cs-fixer.dist.php https://raw.githubusercontent.com/atabix/macbook-install/main/scripts/php-cs-fixer.dist.php
 
         echo "Install step: 1.4"
         vscode_extensions
@@ -160,7 +159,7 @@ if [ "$DEVELOPER" = true ]; then
         mkdir -p $HOME/.php-cs-fixer
         composer require --dev --working-dir=$HOME/.php-cs-fixer friendsofphp/php-cs-fixer
         echo 'export PATH="$PATH:$HOME/.php-cs-fixer/vendor/bin' >> $HOME/.zshrc
-        curl https://raw.githubusercontent.com/atabix/macbook-install/main/scripts/php-cs-fixer.dist.php > $HOME/Development/.php-cs-fixer.dist.php
+        curl -o $HOME/Development/.php-cs-fixer.dist.php https://raw.githubusercontent.com/atabix/macbook-install/main/scripts/php-cs-fixer.dist.php
 
         echo "Install step: 1.4"
         vscode_extensions
@@ -192,8 +191,7 @@ if [ "$DEVELOPER" = false ]; then
         #install tools with brew
         echo "Install step: 1.1"
         cd || exit
-        curl -O https://raw.githubusercontent.com/atabix/macbook-install/main/Brewfile-nondev
-        mv Brewfile-nondev Brewfile
+        curl -o Brewfile https://raw.githubusercontent.com/atabix/macbook-install/main/Brewfile-nondev
         brew bundle install
         source $HOME/.zshrc
         rm Brewfile
@@ -218,8 +216,7 @@ if [ "$DEVELOPER" = false ]; then
         #install tools with brew
         echo "Install step: 1.1"
         cd || exit
-        curl -O https://raw.githubusercontent.com/atabix/macbook-install/main/Brewfile-nondev
-        mv Brewfile-nondev Brewfile
+        curl -o Brewfile https://raw.githubusercontent.com/atabix/macbook-install/main/Brewfile-nondev
         brew bundle install
         source $HOME/.zshrc
         rm Brewfile
