@@ -1,7 +1,18 @@
 #first install xcode in a terminal with "xcode-select --install" we can't do this in the script because the dialog won't make the script wait
 #same here: if it's an arm64 based laptop (M1, M2, etc) run this command "sudo softwareupdate --install-rosetta"
 
-#to run the script easily from the terminal, type: "export DEVELOPER=true; curl https://raw.githubusercontent.com/atabix/macbook-install/main/install.sh | zsh"
+#to run the script easily from the terminal, type: "curl https://raw.githubusercontent.com/atabix/macbook-install/main/install.sh | zsh"
+
+#prompt to ask if this will be a developer laptop or not
+read -p "Will this laptop be for a developer? [Y/n]" -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+    export DEVELOPER=true
+elif [[ $REPLY =~ ^[Nn]$ ]]
+then
+    export DEVELOPER=false
+fi
 
 #bundle repeatable commands into functions
 zsh_env_install() {
@@ -76,6 +87,11 @@ dev_extras() {
     #volta
     curl https://get.volta.sh | bash
     $HOME/.volta/bin/volta install node
+    #remove unnecessary and not loaded environment file created by volta, safety check with a hash so that we don't delete something we don't want to delete
+    if echo "174fd45578e64fd81c3701d6fc9608f9e2a4ce8e  .profile" | shasum -a 1 -c | grep -q '.profile: OK'; then
+        rm .profile
+    fi
+
 }
 brew_autoupdate() {
     #make brew autoupdate
