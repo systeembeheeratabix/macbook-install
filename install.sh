@@ -87,6 +87,11 @@ dev_extras() {
     #volta
     curl https://get.volta.sh | bash
     $HOME/.volta/bin/volta install node
+    #remove unnecessary and not loaded environment file created by volta, safety check with a hash so that we don't delete something we don't want to delete
+    if echo "174fd45578e64fd81c3701d6fc9608f9e2a4ce8e  .profile" | shasum -a 1 -c | grep -q '.profile: OK'; then
+        rm .profile
+    fi
+
 }
 brew_autoupdate() {
     #make brew autoupdate
