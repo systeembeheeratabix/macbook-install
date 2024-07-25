@@ -176,7 +176,7 @@ if [ "$DEVELOPER" = true ]; then
         echo "Install step: 1.3"
         mkdir -p $HOME/.php-cs-fixer
         composer require --dev --working-dir=$HOME/.php-cs-fixer friendsofphp/php-cs-fixer
-        echo 'export PATH="$PATH:$HOME/.php-cs-fixer/vendor/bin' >> $HOME/.zshrc
+        echo 'export PATH="$PATH:$HOME/.php-cs-fixer/vendor/bin"' >> $HOME/.zshrc
         curl -o $HOME/Development/.php-cs-fixer.dist.php https://raw.githubusercontent.com/atabix/macbook-install/main/scripts/php-cs-fixer.dist.php
 
         echo "Install step: 1.4"
