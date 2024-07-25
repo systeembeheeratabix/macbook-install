@@ -4,7 +4,7 @@
 #to run the script easily from the terminal, type: "curl https://raw.githubusercontent.com/atabix/macbook-install/main/install.sh | zsh"
 
 #prompt to ask if this will be a developer laptop or not
-read -p "Will this laptop be for a developer? [Y/n]" -n 1 -r
+read "REPLY?Will this laptop be for a developer? [y/n]"
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -29,6 +29,7 @@ zsh_env_install() {
     #changing .zshrc
     echo "# plugins" > $HOME/.zshrc
     echo "plugins=(" >> $HOME/.zshrc
+    echo "brew" >> $HOME/.zshrc
     echo "docker" >> $HOME/.zshrc
     echo "fzf-tab" >> $HOME/.zshrc
     echo "git" >> $HOME/.zshrc
@@ -38,6 +39,7 @@ zsh_env_install() {
     echo ")" >> $HOME/.zshrc
     echo "# omz" >> $HOME/.zshrc
     echo 'export ZSH="$HOME/.oh-my-zsh"' >> $HOME/.zshrc
+    echo 'FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"' >> $HOME/.zshrc
     echo 'source $ZSH/oh-my-zsh.sh' >> $HOME/.zshrc
     echo "# alias" >> $HOME/.zshrc
     echo 'alias ls="ls -hplav --color=always"' >> $HOME/.zshrc
