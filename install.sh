@@ -4,7 +4,8 @@
 #to run the script easily from the terminal, type: "curl https://raw.githubusercontent.com/atabix/macbook-install/main/install.sh | zsh"
 
 #prompt to ask if this will be a developer laptop or not
-read "REPLY?Will this laptop be for a developer? [y/n]"
+echo -n "Will this laptop be for a developer? [y/n]"
+read -k 1 REPLY
 echo
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
