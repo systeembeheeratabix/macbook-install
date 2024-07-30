@@ -40,6 +40,7 @@ zsh_env_install() {
     echo ")" >> $HOME/.zshrc
     echo "# omz" >> $HOME/.zshrc
     echo 'export ZSH="$HOME/.oh-my-zsh"' >> $HOME/.zshrc
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zshrc
     echo 'FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"' >> $HOME/.zshrc
     echo 'source $ZSH/oh-my-zsh.sh' >> $HOME/.zshrc
     echo "# alias" >> $HOME/.zshrc
@@ -124,9 +125,6 @@ if [ "$DEVELOPER" = true ]; then
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         eval "$(/opt/homebrew/bin/brew shellenv)"
 
-        #add brew binary to zsh path
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zshrc
-
         #tell macos to not index these folders
         [ ! -d "$HOME/Development" ] && mkdir -p $HOME/Development
         touch $HOME/Development/.metadata_never_index
@@ -166,9 +164,6 @@ if [ "$DEVELOPER" = true ]; then
         echo "Install step: 1.1"
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         eval "$(/usr/local/bin/brew shellenv)"
-
-        #add brew binary to zsh path
-        echo 'eval "$(/usr/local/bin/brew shellenv)"' >> $HOME/.zshrc
 
         #tell macos to not index these folders
         [ ! -d "$HOME/Development" ] && mkdir -p $HOME/Development
