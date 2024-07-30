@@ -115,6 +115,8 @@ if [ "$DEVELOPER" = true ]; then
         echo "Install step: 1.0"
         #run sudo for the first time so that homebrew will detect it later
         sudo whoami
+        #switch xcode to cli so that the license is accepted
+        sudo xcode-select --switch /Library/Developer/CommandLineTools
         zsh_env_install
 
         #brew noninteractive install
@@ -154,6 +156,8 @@ if [ "$DEVELOPER" = true ]; then
         echo "Install step: 1.0"
         #run sudo for the first time so that homebrew will detect it later
         sudo whoami
+        #switch xcode to cli so that the license is accepted
+        sudo xcode-select --switch /Library/Developer/CommandLineTools
         zsh_env_install
         #fix /usr/local permissions, this is only needed on intel macs because intel homebrew installs to /usr/local
         sudo chown -R $(whoami) /usr/local/*
@@ -196,6 +200,8 @@ if [ "$DEVELOPER" = false ]; then
         echo ARM detected
         #run sudo for the first time so that homebrew will detect it later
         sudo whoami
+        #switch xcode to cli so that the license is accepted
+        sudo xcode-select --switch /Library/Developer/CommandLineTools
         #brew noninteractive install
         echo "Install step: 1.0"
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -222,6 +228,8 @@ if [ "$DEVELOPER" = false ]; then
         echo x86_64 detected
         #run sudo for the first time so that homebrew will detect it later
         sudo whoami
+        #switch xcode to cli so that the license is accepted
+        sudo xcode-select --switch /Library/Developer/CommandLineTools
         #fix /usr/local permissions, this is only needed on intel macs because intel homebrew installs to /usr/local
         sudo chown -R $(whoami) /usr/local/*
         #brew noninteractive install
