@@ -40,6 +40,7 @@ zsh_env_install() {
     echo ")" >> $HOME/.zshrc
     echo "# omz" >> $HOME/.zshrc
     echo 'export ZSH="$HOME/.oh-my-zsh"' >> $HOME/.zshrc
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zshrc
     echo 'FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"' >> $HOME/.zshrc
     echo 'source $ZSH/oh-my-zsh.sh' >> $HOME/.zshrc
     echo "# alias" >> $HOME/.zshrc
@@ -115,15 +116,14 @@ if [ "$DEVELOPER" = true ]; then
         echo "Install step: 1.0"
         #run sudo for the first time so that homebrew will detect it later
         sudo whoami
+        #switch xcode to cli so that the license is accepted
+        sudo xcode-select --switch /Library/Developer/CommandLineTools
         zsh_env_install
 
         #brew noninteractive install
         echo "Install step: 1.1"
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         eval "$(/opt/homebrew/bin/brew shellenv)"
-
-        #add brew binary to zsh path
-        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zshrc
 
         #tell macos to not index these folders
         [ ! -d "$HOME/Development" ] && mkdir -p $HOME/Development
@@ -154,6 +154,8 @@ if [ "$DEVELOPER" = true ]; then
         echo "Install step: 1.0"
         #run sudo for the first time so that homebrew will detect it later
         sudo whoami
+        #switch xcode to cli so that the license is accepted
+        sudo xcode-select --switch /Library/Developer/CommandLineTools
         zsh_env_install
         #fix /usr/local permissions, this is only needed on intel macs because intel homebrew installs to /usr/local
         sudo chown -R $(whoami) /usr/local/*
@@ -162,9 +164,6 @@ if [ "$DEVELOPER" = true ]; then
         echo "Install step: 1.1"
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
         eval "$(/usr/local/bin/brew shellenv)"
-
-        #add brew binary to zsh path
-        echo 'eval "$(/usr/local/bin/brew shellenv)"' >> $HOME/.zshrc
 
         #tell macos to not index these folders
         [ ! -d "$HOME/Development" ] && mkdir -p $HOME/Development
@@ -196,6 +195,8 @@ if [ "$DEVELOPER" = false ]; then
         echo ARM detected
         #run sudo for the first time so that homebrew will detect it later
         sudo whoami
+        #switch xcode to cli so that the license is accepted
+        sudo xcode-select --switch /Library/Developer/CommandLineTools
         #brew noninteractive install
         echo "Install step: 1.0"
         NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -222,6 +223,8 @@ if [ "$DEVELOPER" = false ]; then
         echo x86_64 detected
         #run sudo for the first time so that homebrew will detect it later
         sudo whoami
+        #switch xcode to cli so that the license is accepted
+        sudo xcode-select --switch /Library/Developer/CommandLineTools
         #fix /usr/local permissions, this is only needed on intel macs because intel homebrew installs to /usr/local
         sudo chown -R $(whoami) /usr/local/*
         #brew noninteractive install
