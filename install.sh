@@ -40,7 +40,12 @@ zsh_env_install() {
     echo ")" >> $HOME/.zshrc
     echo "# omz" >> $HOME/.zshrc
     echo 'export ZSH="$HOME/.oh-my-zsh"' >> $HOME/.zshrc
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zshrc
+    if [[ $(uname -m) == 'arm64' ]]; then
+        echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zshrc
+    fi
+    if [[ $(uname -m) == 'x86_64' ]]; then
+        echo 'eval "$(/usr/local/bin/brew shellenv)"' >> $HOME/.zshrc
+    fi
     echo 'FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"' >> $HOME/.zshrc
     echo 'source $ZSH/oh-my-zsh.sh' >> $HOME/.zshrc
     echo "# alias" >> $HOME/.zshrc
