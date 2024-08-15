@@ -4,20 +4,20 @@ brew "git"
 brew "git-lfs"
 brew "git-svn"
 brew "gnu-sed"
-cask "android-studio"
-cask "dbngin"
-cask "docker"
-cask "ente-auth"
-cask "flutter"
-cask "google-chrome"
-cask "herd"
-cask "iterm2"
-cask "phpstorm"
-cask "postman"
-cask "raycast"
-cask "rectangle"
-cask "spotify"
-cask "tableplus"
-cask "teamviewer"
-cask "tower"
-cask "visual-studio-code"
+cask "android-studio", args: { no_quarantine: true }
+cask "dbngin", args: { no_quarantine: true }
+cask "docker", args: { no_quarantine: true }
+cask "ente-auth", args: { no_quarantine: true }
+cask "flutter", args: { no_quarantine: true }
+cask "google-chrome", args: { no_quarantine: true }
+cask "herd", args: { no_quarantine: true }
+cask "iterm2", args: { no_quarantine: true }
+cask "phpstorm", args: { no_quarantine: true }
+cask "postman", args: { no_quarantine: true }
+cask "raycast", args: { no_quarantine: true }
+cask "rectangle", args: { no_quarantine: true }
+cask "spotify", args: { no_quarantine: true }
+cask "tableplus", args: { no_quarantine: true }
+cask "teamviewer", args: { no_quarantine: true }
+cask "tower", args: { no_quarantine: true }
+cask "visual-studio-code", args: { no_quarantine: true }
